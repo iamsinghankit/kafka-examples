@@ -35,6 +35,12 @@
             <version>1.11.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.20.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -55,6 +61,25 @@
                         <configuration>
                             <sourceDirectory>${project.basedir}/src/main/resources/</sourceDirectory>
                             <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.os72</groupId>
+                <artifactId>protoc-jar-maven-plugin</artifactId>
+                <version>3.1.0.1</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <protocVersion>3.1.0</protocVersion>
+                            <inputDirectories>
+                                <include>src/main/resources</include>
+                            </inputDirectories>
                         </configuration>
                     </execution>
                 </executions>

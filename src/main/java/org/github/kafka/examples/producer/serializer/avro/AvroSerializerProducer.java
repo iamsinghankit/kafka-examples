@@ -12,6 +12,7 @@ import java.util.Properties;
  * @author iamsinghankit
  */
 public class AvroSerializerProducer extends ProducerConfiguration implements Producer {
+
     @Override
     public void send() {
         Properties config = config();
