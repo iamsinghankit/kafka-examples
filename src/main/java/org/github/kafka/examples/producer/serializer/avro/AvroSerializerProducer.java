@@ -19,7 +19,11 @@ public class AvroSerializerProducer extends ProducerConfiguration implements Pro
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, AvroCustomerSerializer.class.getName());
 
         var producer = new KafkaProducer<String, CustomerAvro>(config);
-        var record = new ProducerRecord<String, CustomerAvro>("test", new CustomerAvro(1, "Ankit"));
+        CustomerAvro customer = CustomerAvro.newBuilder()
+                                            .setId(1)
+                                            .setName("Ankit")
+                                            .build();
+        var record = new ProducerRecord<String, CustomerAvro>("test", customer);
         try {
             producer.send(record).get();
             System.out.println("Message sent successfully!");
