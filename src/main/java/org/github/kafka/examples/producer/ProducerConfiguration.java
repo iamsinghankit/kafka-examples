@@ -24,7 +24,7 @@ public abstract class ProducerConfiguration {
         prop.put(LINGER_MS_CONFIG,1);
         prop.put(CLIENT_ID_CONFIG,"AsyncProducerClient");
         prop.put(MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION,20);
-        prop.put(REQUEST_TIMEOUT_MS_CONFIG,10);
+        prop.put(REQUEST_TIMEOUT_MS_CONFIG,100);
 //        prop.put(MAX_BLOCK_MS_CONFIG,10);
         prop.put(MAX_REQUEST_SIZE_CONFIG,50000);
         prop.put(RECEIVE_BUFFER_CONFIG,-1);

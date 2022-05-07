@@ -6,9 +6,10 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 /**
  * @author iamsinghankit
  */
-public class SyncProducer extends ProducerConfiguration {
+public class SyncProducer extends ProducerConfiguration implements Producer {
 
-    public void send(){
+    @Override
+    public void send() {
         var producer = new KafkaProducer<String, String>(config());
         var record = new ProducerRecord<String, String>("test", "Sync producer");
         try {

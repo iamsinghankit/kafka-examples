@@ -6,8 +6,9 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 /**
  * @author iamsinghankit
  */
-public class AsyncProducer extends ProducerConfiguration {
+public class AsyncProducer extends ProducerConfiguration implements Producer{
 
+    @Override
     public void send() {
         var producer = new KafkaProducer<String, String>(config());
         var record = new ProducerRecord<String, String>("test", "Async producer");
