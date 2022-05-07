@@ -13,6 +13,7 @@ public class AsyncProducer extends ProducerConfiguration {
         var record = new ProducerRecord<String, String>("test", "Async producer");
         try {
             producer.send(record, (m, e) -> {
+//                System.out.println("OffSet: "+m.offset());
                 if (e != null)
                     e.printStackTrace();
             });
