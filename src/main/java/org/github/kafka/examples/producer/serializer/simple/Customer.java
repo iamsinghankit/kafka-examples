@@ -1,4 +1,4 @@
-package org.github.kafka.examples.producer.serializer;
+package org.github.kafka.examples.producer.serializer.simple;
 
 /**
  * @author iamsinghankit

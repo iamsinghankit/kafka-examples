@@ -1,4 +1,4 @@
-package org.github.kafka.examples.producer.serializer;
+package org.github.kafka.examples.producer.serializer.simple;
 
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Serializer;

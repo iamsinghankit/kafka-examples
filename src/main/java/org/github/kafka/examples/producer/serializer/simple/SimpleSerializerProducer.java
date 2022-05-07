@@ -1,4 +1,4 @@
-package org.github.kafka.examples.producer.serializer;
+package org.github.kafka.examples.producer.serializer.simple;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -16,7 +16,7 @@ public class SimpleSerializerProducer extends ProducerConfiguration implements P
     @Override
     public void send() {
         Properties config = config();
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.github.kafka.examples.producer.serializer.SimpleCustomerSerializer");
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, SimpleCustomerSerializer.class.getName());
 
         var producer = new KafkaProducer<String, Customer>(config);
         var record = new ProducerRecord<String, Customer>("test", new Customer(1, "Ankit"));
