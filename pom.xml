@@ -53,7 +53,21 @@
             <version>0.16.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-avro-serializer</artifactId>
+            <!-- For CP 3.1.1 -->
+            <version>3.1.1</version>
+        </dependency>
+
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>http://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
