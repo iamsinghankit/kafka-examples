@@ -9,12 +9,12 @@ import org.github.kafka.examples.producer.serializer.simple.SimpleSerializerProd
 /**
  * @author Ankit Singh
  */
-public class KafkaApp {
+public class KafkaProducerApp {
     public static void main(String[] args) {
 //        send(new SimplePartitionerProducer());
-        send(new JsonSerializerProducer());
+//        send(new JsonSerializerProducer());
 //        send(new ProtoSerializerProducer());
-//        send(new AvroSerializerProducer());
+        send(new AvroSerializerProducer());
 //        send(new SimpleSerializerProducer());
 //        send(new FireAndForgetProducer());
 //        send(new SyncProducer());
