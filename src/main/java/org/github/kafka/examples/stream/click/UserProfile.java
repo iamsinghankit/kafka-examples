@@ -1,11 +1,13 @@
 package org.github.kafka.examples.stream.click;
 
 public class UserProfile {
-    int userID;
-    String userName;
-    String zipcode;
-    String[] interests;
+    private  int userID;
+    private String userName;
+    private String zipcode;
+    private String[] interests;
 
+    public UserProfile() {
+    }
 
     public UserProfile(int userID, String userName, String zipcode, String[] interests) {
         this.userID = userID;

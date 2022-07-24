@@ -35,16 +35,16 @@ public class ClickStreamEnrichment implements Runnable{
         KStream<Integer, UserActivity> viewsWithProfile = views.leftJoin(profiles,
                     (page, profile) -> {
                         if (profile != null)
-                            return new UserActivity(profile.getUserID(), profile.getUserName(), profile.getZipcode(), profile.getInterests(), "", page.page());
+                            return new UserActivity(profile.getUserID(), profile.getUserName(), profile.getZipcode(), profile.getInterests(), "", page.getPage());
                         else
-                           return new UserActivity(-1, "", "", null, "", page.page());
+                           return new UserActivity(-1, "", "", null, "", page.getPage());
 
         });
 
         KStream<Integer, UserActivity> userActivityKStream = viewsWithProfile.leftJoin(searches,
                 (userActivity, search) -> {
                     if (search != null)
-                        userActivity.updateSearch(search.searchTerms());
+                        userActivity.updateSearch(search.getSearchTerms());
                     else
                         userActivity.updateSearch("");
                     return userActivity;
@@ -64,7 +64,7 @@ public class ClickStreamEnrichment implements Runnable{
         streams.start();
 
 
-        sleepQuietly(Duration.ofSeconds(60));
+        sleepQuietly(Duration.ofSeconds(30));
 
         streams.close();
 
